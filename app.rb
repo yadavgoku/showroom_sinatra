@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'yaml/store'
 require './core/showroom'
 
 
@@ -7,15 +6,15 @@ Need = {}
 
 
 get '/' do
-  @title = "Welcome to sinatra"
+  @title = "Welcome to sinatra showroom"
   erb :index
 end
-post '/action' do
 
+post '/action' do
   Need['need']  = params['action_required'].to_s
   erb :'action'
-
 end
+
 post '/perform_action' do
   Need['car'] = params['car_class']
   similar_actions = %w(change_air_bags order_air_bags order_tyres change_air_bags)
@@ -24,7 +23,6 @@ post '/perform_action' do
   else
     Need['quantity'] = params['quantity']
   end
-
   @info = @showroom = Showroom.new.showroom(Need)
   @cars = @info['for_cars']
   erb :perform_action
