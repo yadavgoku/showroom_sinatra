@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8' />
+  <title>Suffragist</title>
+  <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+
+</head>
+<body class='container'style="background-image: url(<%='/images/car2.jpg'%>);background-size: cover;color: white;background-repeat: no-repeat">
+
+<h4>Action performed </h4>
+
+<% if Need['need'] == 'change_tyres' %>
+  <% @cars.each do |car,nos| %>
+    <%= "\nTyres of #{nos} #{car}'s are replaced" %><br>
+  <% end %>
+
+<% elsif Need['need'] == 'order_tyres' %>
+  <%= "Tyres odered successfully for" %><br>
+  <% @cars.each do |car,nos| %>
+    <%= "-> #{nos} - #{car}" %><br>
+  <% end %>
+
+
+<% elsif Need['need'] == 'change_air_bags' %>
+
+  <% @cars.each do |car,nos| %>
+    <%= "\n Air bags of #{nos} #{car}'s are replaced" %><br>
+  <% end %>
+
+<% elsif Need['need'] == 'order_air_bags' %>
+  <%= "Air bags ordered successfully for" %><br>
+  <% @cars.each do |car,nos| %>
+    <%= "-> #{nos} - #{car}" %><br>
+  <% end %>
+
+<% elsif Need['need'] == 'increase_stock' %>
+  <% @cars.each do |car,nos| %>
+    <% @cars[car] = nos.to_i + @info["quantity"].to_i %>
+    <%= "-> #{car}s stock are increased from #{nos} to #{@cars[car]}" %><br>
+  <% end %>
+
+
+<% elsif Need['need'] == 'sell_cars' %>
+  <% @cars.each do |car,nos| %>
+  <% @cars[car] = nos.to_i - @info["quantity"].to_i %>
+    <%= "-> #{@info["quantity"].to_i}  #{car}s are sold and #{@cars[car]} #{car}s are left" %><br>
+  <% end %>
+
+<% end %>
+
+
+<br>
+<button type='submit' class='btn btn-primary'><a href="/" type="button" methods="get" style="color: whitesmoke;padding: 2px"> <-Actions</a></button>
+
+
+</body>
+</html>

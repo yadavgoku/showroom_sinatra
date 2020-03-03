@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8' />
+  <title>Showroom</title>
+  <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+  <link href='../public/stylesheets/custom.css.erb' rel='stylesheet' />
+</head>
+<body class='container' style="background-image:  url(<%='/images/car2.jpg'%>);background-size: cover;color: white">
+<h1 style="text-align: center">Welcome to sanitra showroom</h1>
+<h4>Action required </h4>
+<form action='action' method='post' >
+  <ul class='unstyled'>
+    <label>Action</label>
+    <select name="action_required">Select an action
+      <option value="change_tyres">change_tyre</option>
+      <option value="change_air_bags">change_air_bag</option>
+      <option value="order_tyres">order_tyres</option>
+      <option value="order_air_bags">order_air_bags</option>
+      <option value="increase_stock">increase_stock</option>
+      <option value="sell_cars">decrease_stock</option>
+    </select>
+  </ul>
+  <button type='submit' class='btn btn-primary'>Sumbit</button>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

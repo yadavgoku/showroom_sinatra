@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8' />
+  <title>Suffragist</title>
+  <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+</head>
+<body class='container'  style="background-image: url(<%='/images/car2.jpg'%>);background-size: cover;color: white;background-repeat: no-repeat">
+<h4>More info </h4>
+<form action='perform_action' method='post'>
+  <ul class='unstyled'>
+    <label>Action</label>
+    <select name="action">
+      <option value= <%= Need['need'] %> ><%= Need['need'] %></option>
+    </select>
+    <br>
+    <label>Car class</label>
+    <select name="car_class">
+      <option value="sedan">sedan</option>
+      <option value="small_cars">small cars</option>
+      <option value="compact">compact</option>
+      <option value="regular">regular</option>
+    </select>
+    <% if Need['need'] == 'change_tyres' or Need['need'] == 'order_tyres' %>
+      <br>
+      <label>Brand</label>
+      <select name="brand">
+      <option value="bharath">bharath</option>
+      <option value="MRF">MRF</option>
+    </select>
+      <% elsif Need['need'] == 'change_air_bags' or Need['need'] == 'order_air_bags' %>
+      <br>
+      <label>Brand</label>
+      <select name="brand">
+        <option value="sky">Sky</option>
+        <option value="nitro">Nitro</option>
+      </select>
+    <% elsif Need['need'] == 'increase_stock' %>
+      <label for="quantity">Quantity: </label>
+      <input type="number" id="quantity" name="quantity"><br>
+
+    <% elsif Need['need'] == 'sell_cars' %>
+      <label for="quantity">Quantity: </label>
+      <input type="number" id="quantity" name="quantity"><br>
+      <% end %>
+
+  </ul>
+  <button type='submit' class='btn btn-primary'>Sumbit</button>
+</form>
+</body>
+</html>
